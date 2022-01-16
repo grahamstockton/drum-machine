@@ -1,6 +1,7 @@
 :root{
   --background-color: #060606;
   --window-color: #1D1E22;
+  --scale-factor: min(1, calc(100vw / 600px));
   margin: 0px;
 }
 
@@ -10,25 +11,27 @@ body {
 }
 
 h5 {
-  font-size: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: min(1.5rem, 5vw);
+  margin-top: min(1.5rem, 4vw);
+  margin-bottom: min(1rem, 2vw);
   color: aquamarine;
 }
 
-h6 {
+h6, button {
   margin: 0px;
+  font-size: min(1rem, 2.5vw);
 }
 
 .container {
   background-color: var(--window-color);
-  width: 600px;
-  height: 400px;
+  width: min(600px, 100vw);
+  aspect-ratio: calc(3/2);
   display: flex;
   flex-direction: row;
   position: absolute;
   left: 50%;
   top: 50%;
+  transform-origin: top left;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -40,7 +43,7 @@ h6 {
   aspect-ratio: 1;
   box-sizing: border-box;
   height: 100%;
-  padding: 20px;
+  padding: min(3vw, 15px);
 }
 
 .key-button {
@@ -52,7 +55,8 @@ h6 {
 
 .controls {
   box-sizing: border-box;
-  width: 160px;
+  width: max(30vw, 128px);
+  padding-right: min(4vw, 40px);
 }
 
 .toggle-container {
@@ -61,7 +65,7 @@ h6 {
   column-gap: 10px;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: min(1rem, 2vw);
 }
 
 #mode-display {
@@ -70,16 +74,16 @@ h6 {
   column-gap: 10px;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: min(1rem, 2vw);
 }
 
 #instrument-display {
   background-color: aquamarine;
-  width: 180px;
+  width: min(180px, 25vw);
   height: 40px;
-  margin-bottom: 1rem;
+  margin-bottom: min(1rem, 2vw);
   text-align: center;
-  font-size: 1.5rem;
+  font-size: min(1.5rem, 4vw);
   color: black;
   font-weight: bold;
 }
@@ -88,4 +92,8 @@ h6 {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+}
+
+.slider {
+  width: min(180px, 25vw);
 }
