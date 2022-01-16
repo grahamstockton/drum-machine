@@ -1,38 +1,91 @@
-.App {
-  text-align: center;
+:root{
+  --background-color: #060606;
+  --window-color: #1D1E22;
+  margin: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background-color: var(--background-color);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h5 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: aquamarine;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h6 {
+  margin: 0px;
+}
+
+.container {
+  background-color: var(--window-color);
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+}
+
+.key-button {
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.controls {
+  box-sizing: border-box;
+  width: 160px;
+}
+
+.toggle-container {
+  width: 100%;
+  display: inline-flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#mode-display {
+  width: 100%;
+  display: inline-flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#instrument-display {
+  background-color: aquamarine;
+  width: 180px;
+  height: 40px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
+  font-weight: bold;
+}
+
+#instrument-display > span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
