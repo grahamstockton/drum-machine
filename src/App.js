@@ -43,10 +43,11 @@ function App() {
   });
 
   function toggleOnOff() {
+    console.log(state.isOn);
     setState({
       ...state,
-      power: state.isOn === ON ? OFF : ON
-    })
+      isOn: state.isOn === ON ? OFF : ON
+    });
   }
 
   function toggleMode() {
@@ -62,6 +63,11 @@ function App() {
   useEffect(() => {
     function handleKeyDown(e) {
       if ((e.key.toUpperCase() in audioFiles[state.mode]) && state.isOn) {
+        setState({
+          ...state,
+          last_key_press: e.key.toUpperCase()
+        });
+
         let audio = new Audio(audioFiles[state.mode][e.key.toUpperCase()]["src"]); 
         audio.volume = state.volume;
         audio.play().catch((e) => {});
@@ -69,7 +75,7 @@ function App() {
     }
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [state.isOn, state.mode, state.volume]);
+  }, [state]);
 
   return (
     <div className="app">
